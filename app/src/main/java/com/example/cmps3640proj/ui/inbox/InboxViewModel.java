@@ -1,16 +1,16 @@
-package com.example.cmps3640proj.ui.gallery;
+package com.example.cmps3640proj.ui.inbox;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class InboxViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public InboxViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is inbox fragment");
     }
 
     public LiveData<String> getText() {

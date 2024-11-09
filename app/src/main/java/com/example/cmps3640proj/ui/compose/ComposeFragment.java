@@ -1,4 +1,4 @@
-package com.example.cmps3640proj.ui.gallery;
+package com.example.cmps3640proj.ui.compose;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.cmps3640proj.databinding.FragmentGalleryBinding;
+import com.example.cmps3640proj.databinding.FragmentComposeBinding;
 
-public class GalleryFragment extends Fragment {
+public class ComposeFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentComposeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        ComposeViewModel galleryViewModel =
+                new ViewModelProvider(this).get(ComposeViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentComposeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+        final TextView textView = binding.textCompose;
         galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

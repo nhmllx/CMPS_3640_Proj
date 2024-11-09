@@ -1,4 +1,4 @@
-package com.example.cmps3640proj.ui.home;
+package com.example.cmps3640proj.ui.inbox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.cmps3640proj.databinding.FragmentHomeBinding;
+//import com.example.cmps3640proj.databinding.FragmentHomeBinding;
+import com.example.cmps3640proj.databinding.FragmentInboxBinding;
 
-public class HomeFragment extends Fragment {
+public class InboxFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentInboxBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        InboxViewModel homeViewModel =
+                new ViewModelProvider(this).get(InboxViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentInboxBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textInbox;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
