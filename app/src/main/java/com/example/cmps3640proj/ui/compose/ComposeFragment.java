@@ -24,7 +24,7 @@ public class ComposeFragment extends Fragment {
         binding = FragmentComposeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCompose;
+        final TextView textView = binding.buttonSend;
         galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

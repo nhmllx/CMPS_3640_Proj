@@ -10,4 +10,11 @@
     <string name="menu_inbox">Inbox</string>
     <string name="menu_compose">Compose</string>
     <string name="menu_login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="log_in">Log In</string>
+    <string name="app_logo">App Logo</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="message">Message</string>
 </resources>
