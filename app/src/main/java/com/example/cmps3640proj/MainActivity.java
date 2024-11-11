@@ -1,34 +1,36 @@
 package com.example.cmps3640proj;
-//g
+
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
-
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.cmps3640proj.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private boolean isLoggedIn = false;  // Replace this with actual login check
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Inflate layout
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Set the toolbar
         setSupportActionBar(binding.appBarMain.toolbar);
+
+        // Floating action button click listener
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,17 +39,34 @@ public class MainActivity extends AppCompatActivity {
                         .setAnchorView(R.id.fab).show();
             }
         });
+
+        // Setup drawer layout and navigation view
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        // AppBarConfiguration with fragments
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_inbox, R.id.nav_compose, R.id.nav_login)
                 .setOpenableLayout(drawer)
                 .build();
+
+        // Navigation controller
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // Check if the user is logged in
+        if (!isLoggedIn) {
+            // Redirect to login fragment
+            navController.navigate(R.id.nav_login);
+        }
+    }
+
+    // Call this method after a successful login
+    public void onLoginSuccess() {
+        isLoggedIn = true;
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController.navigate(R.id.nav_inbox);  // Navigate to inbox after login
     }
 
     @Override
