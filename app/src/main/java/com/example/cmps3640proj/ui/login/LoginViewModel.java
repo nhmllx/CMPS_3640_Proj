@@ -3,17 +3,29 @@ package com.example.cmps3640proj.ui.login;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private final FirebaseAuth auth;
+    private final MutableLiveData<Boolean> loginResult = new MutableLiveData<>();
 
     public LoginViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is login fragment");
+        auth = FirebaseAuth.getInstance();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void loginUser(String email, String password) {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        loginResult.setValue(true);
+                    } else {
+                        loginResult.setValue(false);
+                    }
+                });
+    }
+
+    public LiveData<Boolean> getLoginResult() {
+        return loginResult;
     }
 }
