@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520118054249",
+    "project_id": "cmps-3640-proj",
+    "storage_bucket": "cmps-3640-proj.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520118054249:android:c8e184f7039fd1e7b221f8",
+        "android_client_info": {
+          "package_name": "com.example.cmps3640proj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPJlRzcfdY0vQxQki55M3DQBijo9Wxd0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
