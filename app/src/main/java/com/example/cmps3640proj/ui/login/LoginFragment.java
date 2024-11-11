@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.cmps3640proj.databinding.FragmentLoginBinding;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
 
