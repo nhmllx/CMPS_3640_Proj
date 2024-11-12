@@ -22,6 +22,7 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
         binding.loginButton.setOnClickListener(v -> {
             String email = binding.usernameEditText.getText().toString().trim();
             String password = binding.passwordEditText.getText().toString().trim();
@@ -48,8 +49,10 @@ public class LoginFragment extends Fragment {
             }
         });
 
+
         return root;
     }
+
 
     @Override
     public void onDestroyView() {
