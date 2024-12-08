@@ -10,7 +10,7 @@ public class ComposeViewModel extends ViewModel {
 
     public ComposeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is compose email fragment");
+        mText.setValue("Send");
     }
 
     public LiveData<String> getText() {

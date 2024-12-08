@@ -1,48 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Recipient Label -->
+    <TextView
+        android:id="@+id/labelRecipient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@android:color/black" />
 
     <!-- Recipient Field -->
     <EditText
         android:id="@+id/editTextRecipient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:hint="To"
+        android:layout_below="@id/labelRecipient"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:hint="@string/enter_recipient_email"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:background="@android:drawable/edit_text"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <!-- Subject Label -->
+    <TextView
+        android:id="@+id/labelSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:text="@string/subject"
+        android:textSize="16sp"
+        android:layout_below="@id/editTextRecipient"
+        android:layout_marginBottom="4dp"
+        android:textColor="@android:color/black" />
 
     <!-- Subject Field -->
     <EditText
         android:id="@+id/editTextSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRecipient"
-        android:layout_marginBottom="8dp"
-        android:hint="Subject"
-        android:minHeight="48dp" />
+        android:layout_below="@id/labelSubject"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/enter_subject"
+        android:minHeight="48dp"
+        android:background="@android:drawable/edit_text"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <!-- Message Body Label -->
+    <TextView
+        android:id="@+id/labelMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:textSize="16sp"
+        android:layout_below="@id/editTextSubject"
+        android:layout_marginBottom="4dp"
+        android:textColor="@android:color/black" />
 
     <!-- Message Body Field -->
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="@string/message"
+        android:layout_below="@id/labelMessage"
+        android:layout_above="@id/buttonSend"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:hint="@string/type_your_message_here"
         android:gravity="top"
         android:inputType="textMultiLine"
-        android:layout_below="@id/editTextSubject"
-        android:layout_marginBottom="8dp" />
+        android:minHeight="200dp"
+        android:background="@android:drawable/edit_text"
+        android:scrollbars="vertical"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <!-- Send Button -->
     <Button
         android:id="@+id/buttonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="@string/send"
+        android:textColor="#4E342E" />
 
 </RelativeLayout>
+

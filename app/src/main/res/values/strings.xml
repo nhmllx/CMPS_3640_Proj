@@ -24,4 +24,10 @@
     <string name="password_hint">Password</string>
     <string name="signup_button_text">Sign Up</string>
     <string name="login_button_text">Log In</string>
+    <string name="send">Send</string>
+    <string name="type_your_message_here">Type your message here</string>
+    <string name="enter_recipient_email">Enter recipient email</string>
+    <string name="enter_subject">Enter subject</string>
+    <string name="subject">Subject</string>
+    <string name="to">To</string>
 </resources>
