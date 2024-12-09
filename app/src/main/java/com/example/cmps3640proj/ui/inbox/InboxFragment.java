@@ -32,19 +32,32 @@ public class InboxFragment extends Fragment {
         DocumentReference docRef = db.collection("Compose").document("3nxYrNMxJCNxkL6YKD7j");
 
         // Fetch and display data
-        final TextView textView = binding.textInbox;
+        final TextView textViewMessage = binding.textMessage;
+        final TextView textViewRecipient = binding.textRecipient;
+        final TextView textViewSubject = binding.textSubject;
+        final TextView textViewUserID = binding.textUserId;
+
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    String data = document.getData().toString(); // Replace with specific field if needed
-                    textView.setText(data);
+                    // Retrieve fields from the document
+                    String message = document.getString("message");
+                    String recipient = document.getString("recipient");
+                    String subject = document.getString("subject");
+                    String userID = document.getString("userId");
+
+                    // Display data in TextViews
+                    textViewMessage.setText("Message: " + (message != null ? message : "N/A"));
+                    textViewRecipient.setText("Recipient: " + (recipient != null ? recipient : "N/A"));
+                    textViewSubject.setText("Subject: " + (subject != null ? subject : "N/A"));
+                    textViewUserID.setText("Sender: " + (userID != null ? userID : "N/A"));
                 } else {
-                    textView.setText("Document does not exist.");
+                    textViewMessage.setText("Document does not exist.");
                 }
             } else {
                 FirebaseFirestoreException e = (FirebaseFirestoreException) task.getException();
-                textView.setText("Error: " + e.getMessage());
+                textViewMessage.setText("Error: " + e.getMessage());
             }
         });
 
