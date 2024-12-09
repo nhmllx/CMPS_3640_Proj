@@ -10,7 +10,7 @@ public class InboxViewModel extends ViewModel {
 
     public InboxViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is inbox fragment");
+        mText.setValue("Welcome to your inbox");
     }
 
     public LiveData<String> getText() {
