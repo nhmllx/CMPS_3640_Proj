@@ -1,5 +1,6 @@
 package com.example.cmps3640proj.ui.inbox;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,18 +16,20 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Objects;
+
 public class InboxFragment extends Fragment {
 
     private FragmentInboxBinding binding;
-    private FirebaseFirestore db;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentInboxBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         // Reference to the document
         DocumentReference docRef = db.collection("Compose").document("3nxYrNMxJCNxkL6YKD7j");
@@ -57,7 +60,7 @@ public class InboxFragment extends Fragment {
                 }
             } else {
                 FirebaseFirestoreException e = (FirebaseFirestoreException) task.getException();
-                textViewMessage.setText("Error: " + e.getMessage());
+                textViewMessage.setText("Error: " + Objects.requireNonNull(e).getMessage());
             }
         });
 
